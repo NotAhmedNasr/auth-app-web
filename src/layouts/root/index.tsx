@@ -5,9 +5,9 @@ const RootLayout: React.FC = () => {
   return (
     <>
       <NavBar />
-      <main className="p-20">
+      <div className="p-20">
         <Outlet />
-      </main>
+      </div>
     </>
   );
 };
