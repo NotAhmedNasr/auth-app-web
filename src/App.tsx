@@ -5,6 +5,7 @@ import Home from './pages/home';
 import SignUp from './pages/signUp';
 import AuthContextWrapper from './components/hoc/context/auth';
 import SignOut from './pages/signOut';
+import SignIn from './pages/signIn';
 
 const router = createBrowserRouter([
   {
@@ -18,6 +19,10 @@ const router = createBrowserRouter([
       {
         path: 'sign-up',
         element: <SignUp />,
+      },
+      {
+        path: 'sign-in',
+        element: <SignIn />,
       },
       {
         path: 'sign-out',

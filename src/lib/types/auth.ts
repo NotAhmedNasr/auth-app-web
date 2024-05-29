@@ -8,3 +8,5 @@ export interface SignUpResponse {
   token: string;
   user: SignUpData;
 }
+
+export type SignInData = Omit<SignUpData, 'name'>;

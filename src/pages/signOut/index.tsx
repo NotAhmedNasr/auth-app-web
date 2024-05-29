@@ -7,7 +7,7 @@ const SignOut: React.FC = () => {
   const navigate = useNavigate();
   useEffect(() => {
     setAuthToken?.('');
-    navigate('/sign-up');
+    navigate('/sign-in');
   }, []);
   return null;
 };
