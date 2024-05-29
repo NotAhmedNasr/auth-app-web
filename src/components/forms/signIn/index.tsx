@@ -74,7 +74,7 @@ const SignInForm = () => {
           },
         ]}
       >
-        <Input placeholder="ex: email@example.com" />
+        <Input />
       </Form.Item>
 
       <Form.Item<FieldType>
