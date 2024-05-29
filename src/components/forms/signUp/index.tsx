@@ -57,10 +57,10 @@ const SignUpForm = () => {
   return (
     <Form
       name="basic"
-      labelCol={{ span: 8 }}
-      wrapperCol={{ span: 16 }}
-      style={{ maxWidth: 600 }}
+      labelCol={{ span: 6 }}
+      wrapperCol={{ span: 18 }}
       initialValues={{ remember: true }}
+      className="flex flex-col gap-5"
       onFinish={onFinish}
       autoComplete="off"
       disabled={isSubmitting}
@@ -144,9 +144,20 @@ const SignUpForm = () => {
         <Input.Password />
       </Form.Item>
 
-      <Form.Item wrapperCol={{ offset: 8, span: 16 }}>
-        <Button type="primary" htmlType="submit">
-          Submit
+      <Form.Item wrapperCol={{ span: 24 }}>
+        <Button
+          type="primary"
+          block
+          style={{
+            backgroundColor: '#0C4A6E',
+            fontWeight: 'bold',
+            display: 'block',
+            marginTop: '10px',
+          }}
+          size="large"
+          htmlType="submit"
+        >
+          Sign Up
         </Button>
       </Form.Item>
     </Form>

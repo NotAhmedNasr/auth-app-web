@@ -7,7 +7,9 @@ const Home: React.FC = () => {
   return !loading ? (
     authToken ? (
       <div>
-        <h1 className="text-6xl text-center">Welcome to the application</h1>
+        <h1 className="text-6xl text-center font-bold text-slate-100">
+          Welcome to the application
+        </h1>
       </div>
     ) : (
       <Navigate to={'/sign-in'} />
