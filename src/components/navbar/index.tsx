@@ -11,7 +11,7 @@ const authenticatedMenuItems: MenuItem[] = [
     key: '',
   },
   {
-    label: <Link to="sign-out">Sign out</Link>,
+    label: <Link to="sign-out">Sign Out</Link>,
     key: 'sign-out',
   },
 ];
@@ -20,6 +20,10 @@ const anonymousMenuItems: MenuItem[] = [
   {
     label: <Link to="sign-up">Sign Up</Link>,
     key: 'sign-up',
+  },
+  {
+    label: <Link to="sign-in">Sign In</Link>,
+    key: 'sign-in',
   },
 ];
 
@@ -32,11 +36,13 @@ const NavBar: React.FC = () => {
   };
 
   useEffect(() => {
-    setCurrent(location.pathname.split('/')[1]);
-  }, [location]);
+    if (!loading) {
+      setCurrent(location.pathname.split('/')[1]);
+    }
+  }, [location, loading]);
 
   return (
-    <nav className="flex py-4 px-5 md:px-20 dark:bg-gray-200 font-bold">
+    <nav className="flex py-4 px-5 md:px-20 dark:bg-sky-950 font-bold">
       {!loading && (
         <Menu
           className="grow bg-inherit"

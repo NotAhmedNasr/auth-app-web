@@ -16,5 +16,6 @@
 }
 
 body {
-  box-sizing: border-box;
+  box-sizing: border-box !important;
+  background-color: #0C4A6E;
 }
