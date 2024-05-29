@@ -1,5 +1,5 @@
 import { Menu, MenuProps } from 'antd';
-import { useContext, useState } from 'react';
+import { useContext, useEffect, useState } from 'react';
 import { Link, useLocation } from 'react-router-dom';
 import { AuthContext } from '../hoc/context/auth';
 
@@ -8,7 +8,7 @@ type MenuItem = Required<MenuProps>['items'][number];
 const authenticatedMenuItems: MenuItem[] = [
   {
     label: <Link to="/">Home</Link>,
-    key: 'home',
+    key: '',
   },
   {
     label: <Link to="sign-out">Sign out</Link>,
@@ -30,6 +30,10 @@ const NavBar: React.FC = () => {
   const onClick: MenuProps['onClick'] = (e) => {
     setCurrent(e.key);
   };
+
+  useEffect(() => {
+    setCurrent(location.pathname.split('/')[1]);
+  }, [location]);
 
   return (
     <nav className="flex py-4 px-5 md:px-20 dark:bg-gray-200 font-bold">

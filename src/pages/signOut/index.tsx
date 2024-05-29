@@ -1,11 +1,15 @@
-import { useContext } from 'react';
+import { useContext, useEffect } from 'react';
 import { AuthContext } from '../../components/hoc/context/auth';
-import { Navigate } from 'react-router-dom';
+import { useNavigate } from 'react-router-dom';
 
 const SignOut: React.FC = () => {
   const { setAuthToken } = useContext(AuthContext) ?? {};
-  setAuthToken?.('');
-  return <Navigate to={'/sign-up'} />;
+  const navigate = useNavigate();
+  useEffect(() => {
+    setAuthToken?.('');
+    navigate('/sign-up');
+  }, []);
+  return null;
 };
 
 export default SignOut;
