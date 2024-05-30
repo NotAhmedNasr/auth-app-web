@@ -12,7 +12,7 @@ type FieldType = {
 };
 
 const SignUpForm = () => {
-  const { setAuthToken } = useContext(AuthContext) ?? {};
+  const { setAuthToken, setAppUser } = useContext(AuthContext) ?? {};
   const [isSubmitting, setIsSubmitting] = useState(false);
   const [messageApi, contextHolder] = message.useMessage();
   const messageKey = 'toast';
@@ -53,6 +53,7 @@ const SignUpForm = () => {
       content: 'Sign up was successful!',
     });
     setAuthToken?.(result.token);
+    setAppUser?.(result.user);
   };
   return (
     <Form

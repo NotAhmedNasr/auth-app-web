@@ -29,7 +29,7 @@ const anonymousMenuItems: MenuItem[] = [
 
 const NavBar: React.FC = () => {
   const location = useLocation();
-  const { authToken, loading } = useContext(AuthContext) ?? {};
+  const { authToken, loading, user } = useContext(AuthContext) ?? {};
   const [current, setCurrent] = useState(location.pathname.split('/')[1]);
   const onClick: MenuProps['onClick'] = (e) => {
     setCurrent(e.key);
@@ -42,15 +42,22 @@ const NavBar: React.FC = () => {
   }, [location, loading]);
 
   return (
-    <nav className="flex py-4 px-5 md:px-20 dark:bg-sky-950 font-bold">
+    <nav className="flex items-center py-4 px-5 md:px-20 dark:bg-sky-950 font-bold">
       {!loading && (
-        <Menu
-          className="grow bg-inherit"
-          onClick={onClick}
-          selectedKeys={[current]}
-          mode="horizontal"
-          items={authToken ? authenticatedMenuItems : anonymousMenuItems}
-        />
+        <>
+          <Menu
+            className="grow bg-inherit"
+            onClick={onClick}
+            selectedKeys={[current]}
+            mode="horizontal"
+            items={authToken ? authenticatedMenuItems : anonymousMenuItems}
+          />
+          {user && (
+            <div className="text-slate-200 text-sm font-bold underline">
+              {`${user.name}`} | <i className="text-xs">{`${user.email}`}</i>
+            </div>
+          )}
+        </>
       )}
     </nav>
   );

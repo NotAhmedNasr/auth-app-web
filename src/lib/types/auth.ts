@@ -1,3 +1,5 @@
+import { AppUser } from './user';
+
 export interface SignUpData {
   email: string;
   name: string;
@@ -6,7 +8,7 @@ export interface SignUpData {
 
 export interface SignUpResponse {
   token: string;
-  user: SignUpData;
+  user: AppUser;
 }
 
 export type SignInData = Omit<SignUpData, 'name'>;

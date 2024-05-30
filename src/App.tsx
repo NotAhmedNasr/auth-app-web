@@ -7,11 +7,13 @@ import AuthContextWrapper from './components/hoc/context/auth';
 import SignOut from './pages/signOut';
 import SignIn from './pages/signIn';
 import { ConfigProvider } from 'antd';
+import NotFound from './pages/notFound';
 
 const router = createBrowserRouter([
   {
     path: '/',
     element: <RootLayout />,
+    errorElement: <NotFound />,
     children: [
       {
         element: <Home />,
